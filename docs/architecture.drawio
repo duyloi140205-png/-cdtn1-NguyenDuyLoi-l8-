@@ -1,0 +1,83 @@
+<mxfile host="65bd71144e">
+    <diagram id="B38WpxAjo85xXeoeZUbr" name="Page-1">
+        <mxGraphModel dx="1555" dy="1134" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <UserObject label="" mermaidData="{&#xa;  &quot;data&quot;: &quot;graph TD\n    subgraph Architecture [\&quot;Architecture Diagram\&quot;]\n        UI[\&quot;&lt;b&gt;User UI&lt;/b&gt;&lt;br/&gt;Web Interface&lt;br/&gt;-------------------&lt;br/&gt;• Hiển thị khảo sát&lt;br/&gt;• Hiển thị báo cáo\&quot;]\n        \n        Controller[\&quot;&lt;b&gt;Survey Controller&lt;/b&gt;&lt;br/&gt;-------------------&lt;br/&gt;• Nhận request&lt;br/&gt;• Điều hướng xử lý\&quot;]\n        \n        Service[\&quot;&lt;b&gt;Survey Service&lt;/b&gt;&lt;br/&gt;Business Logic&lt;br/&gt;-------------------&lt;br/&gt;• Tính CSAT&lt;br/&gt;• Tính NPS&lt;br/&gt;• Kiểm tra dữ liệu\&quot;]\n        \n        Repository[\&quot;&lt;b&gt;Survey Repository&lt;/b&gt;&lt;br/&gt;-------------------&lt;br/&gt;• CRUD Survey&lt;br/&gt;• CRUD Feedback\&quot;]\n        \n        Database[(\&quot;&lt;b&gt;MySQL Database&lt;/b&gt;&lt;br/&gt;-------------------&lt;br/&gt;• Lưu Customer&lt;br/&gt;• Lưu Survey&lt;br/&gt;• Lưu Feedback\&quot;)]\n\n        UI --&gt; Controller\n        Controller --&gt; Service\n        Service --&gt; Repository\n        Repository --&gt; Database\n    end\n\n    subgraph OutsideScope [\&quot;Outside Scope\&quot;]\n        Outside[\&quot;&lt;b&gt;Ngoài phạm vi&lt;/b&gt;&lt;br/&gt;-------------------&lt;br/&gt;• SMS Gateway&lt;br/&gt;• Email Gateway&lt;br/&gt;• AI Sentiment Analysis\&quot;]\n    end&quot;,&#xa;  &quot;config&quot;: null&#xa;}" id="oCA9G6LcbsWm_AfK04_p-14">
+                    <mxCell connectable="0" parent="1" style="group;transparentBounds=1;editIcon=1;lockedGroup=0;groupPadding=10;" vertex="1">
+                        <mxGeometry as="geometry"/>
+                    </mxCell>
+                </UserObject>
+                <UserObject label="Outside Scope" mermaidId="n:OutsideScope" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="Outside Scope" id="oCA9G6LcbsWm_AfK04_p-15">
+                    <mxCell parent="oCA9G6LcbsWm_AfK04_p-14" style="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+                        <mxGeometry height="196" width="295" x="30" y="300" as="geometry"/>
+                    </mxCell>
+                </UserObject>
+                <UserObject label="&lt;b&gt;Ngoài phạm vi&lt;/b&gt;&#xa;-------------------&#xa;• SMS Gateway&#xa;• Email Gateway&#xa;• AI Sentiment Analysis" mermaidId="n:Outside" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="&lt;b&gt;Ngoài phạm vi&lt;/b&gt;&#xa;-------------------&#xa;• SMS Gateway&#xa;• Email Gateway&#xa;• AI Sentiment Analysis" id="oCA9G6LcbsWm_AfK04_p-16">
+                    <mxCell parent="oCA9G6LcbsWm_AfK04_p-15" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+                        <mxGeometry height="131" width="225" x="35" y="45" as="geometry"/>
+                    </mxCell>
+                </UserObject>
+                <UserObject label="Architecture Diagram" mermaidId="n:Architecture" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="Architecture Diagram" id="oCA9G6LcbsWm_AfK04_p-17">
+                    <mxCell parent="oCA9G6LcbsWm_AfK04_p-14" style="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+                        <mxGeometry height="215" width="1507" x="375" y="290" as="geometry"/>
+                    </mxCell>
+                </UserObject>
+                <UserObject label="&lt;b&gt;User UI&lt;/b&gt;&#xa;Web Interface&#xa;-------------------&#xa;• Hiển thị khảo sát&#xa;• Hiển thị báo cáo" mermaidId="n:UI" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="&lt;b&gt;User UI&lt;/b&gt;&#xa;Web Interface&#xa;-------------------&#xa;• Hiển thị khảo sát&#xa;• Hiển thị báo cáo" id="oCA9G6LcbsWm_AfK04_p-18">
+                    <mxCell parent="oCA9G6LcbsWm_AfK04_p-17" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+                        <mxGeometry height="131" width="197" x="35" y="55" as="geometry"/>
+                    </mxCell>
+                </UserObject>
+                <UserObject label="&lt;b&gt;Survey Controller&lt;/b&gt;&#xa;-------------------&#xa;• Nhận request&#xa;• Điều hướng xử lý" mermaidId="n:Controller" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="&lt;b&gt;Survey Controller&lt;/b&gt;&#xa;-------------------&#xa;• Nhận request&#xa;• Điều hướng xử lý" id="oCA9G6LcbsWm_AfK04_p-19">
+                    <mxCell parent="oCA9G6LcbsWm_AfK04_p-17" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+                        <mxGeometry height="112" width="197" x="362" y="64" as="geometry"/>
+                    </mxCell>
+                </UserObject>
+                <UserObject label="&lt;b&gt;Survey Service&lt;/b&gt;&#xa;Business Logic&#xa;-------------------&#xa;• Tính CSAT&#xa;• Tính NPS&#xa;• Kiểm tra dữ liệu" mermaidId="n:Service" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="&lt;b&gt;Survey Service&lt;/b&gt;&#xa;Business Logic&#xa;-------------------&#xa;• Tính CSAT&#xa;• Tính NPS&#xa;• Kiểm tra dữ liệu" id="oCA9G6LcbsWm_AfK04_p-20">
+                    <mxCell parent="oCA9G6LcbsWm_AfK04_p-17" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+                        <mxGeometry height="150" width="192" x="689" y="45" as="geometry"/>
+                    </mxCell>
+                </UserObject>
+                <UserObject label="&lt;b&gt;Survey Repository&lt;/b&gt;&#xa;-------------------&#xa;• CRUD Survey&#xa;• CRUD Feedback" mermaidId="n:Repository" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="&lt;b&gt;Survey Repository&lt;/b&gt;&#xa;-------------------&#xa;• CRUD Survey&#xa;• CRUD Feedback" id="oCA9G6LcbsWm_AfK04_p-21">
+                    <mxCell parent="oCA9G6LcbsWm_AfK04_p-17" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+                        <mxGeometry height="112" width="195" x="1011" y="64" as="geometry"/>
+                    </mxCell>
+                </UserObject>
+                <UserObject label="&lt;b&gt;MySQL Database&lt;/b&gt;&#xa;-------------------&#xa;• Lưu Customer&#xa;• Lưu Survey&#xa;• Lưu Feedback" mermaidId="n:Database" mermaidBaseStyle="html=1;shape=cylinder3;boundedLbl=1;backgroundOutline=1;size=10;strokeWidth=1;whiteSpace=wrap;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="&lt;b&gt;MySQL Database&lt;/b&gt;&#xa;-------------------&#xa;• Lưu Customer&#xa;• Lưu Survey&#xa;• Lưu Feedback" id="oCA9G6LcbsWm_AfK04_p-22">
+                    <mxCell parent="oCA9G6LcbsWm_AfK04_p-17" style="html=1;shape=cylinder3;boundedLbl=1;backgroundOutline=1;size=10;strokeWidth=1;whiteSpace=wrap;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+                        <mxGeometry height="139" width="136" x="1336" y="51" as="geometry"/>
+                    </mxCell>
+                </UserObject>
+                <UserObject label="" mermaidId="e:UI-&gt;Controller#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=1;exitY=0.5;entryX=0;entryY=0.5;" mermaidBaseValue="" id="oCA9G6LcbsWm_AfK04_p-23">
+                    <mxCell edge="1" parent="oCA9G6LcbsWm_AfK04_p-17" source="oCA9G6LcbsWm_AfK04_p-18" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="oCA9G6LcbsWm_AfK04_p-19">
+                        <mxGeometry relative="1" as="geometry">
+                            <Array as="points"/>
+                        </mxGeometry>
+                    </mxCell>
+                </UserObject>
+                <UserObject label="" mermaidId="e:Controller-&gt;Service#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=1;exitY=0.5;entryX=0;entryY=0.5;" mermaidBaseValue="" id="oCA9G6LcbsWm_AfK04_p-24">
+                    <mxCell edge="1" parent="oCA9G6LcbsWm_AfK04_p-17" source="oCA9G6LcbsWm_AfK04_p-19" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="oCA9G6LcbsWm_AfK04_p-20">
+                        <mxGeometry relative="1" as="geometry">
+                            <Array as="points"/>
+                        </mxGeometry>
+                    </mxCell>
+                </UserObject>
+                <UserObject label="" mermaidId="e:Service-&gt;Repository#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=1;exitY=0.5;entryX=0;entryY=0.5;" mermaidBaseValue="" id="oCA9G6LcbsWm_AfK04_p-25">
+                    <mxCell edge="1" parent="oCA9G6LcbsWm_AfK04_p-17" source="oCA9G6LcbsWm_AfK04_p-20" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="oCA9G6LcbsWm_AfK04_p-21">
+                        <mxGeometry relative="1" as="geometry">
+                            <Array as="points"/>
+                        </mxGeometry>
+                    </mxCell>
+                </UserObject>
+                <UserObject label="" mermaidId="e:Repository-&gt;Database#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=1;exitY=0.5;entryX=0;entryY=0.5;" mermaidBaseValue="" id="oCA9G6LcbsWm_AfK04_p-26">
+                    <mxCell edge="1" parent="oCA9G6LcbsWm_AfK04_p-17" source="oCA9G6LcbsWm_AfK04_p-21" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="oCA9G6LcbsWm_AfK04_p-22">
+                        <mxGeometry relative="1" as="geometry">
+                            <Array as="points"/>
+                        </mxGeometry>
+                    </mxCell>
+                </UserObject>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
