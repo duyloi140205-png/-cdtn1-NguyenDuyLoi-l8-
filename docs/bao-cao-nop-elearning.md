@@ -56,6 +56,20 @@
 - [MySQL – Dữ liệu Feedback](minh-chung/06-mysql-feedback.png)
 - [MySQL – Kiểm tra PUT](minh-chung/07-mysql-put.png)
 
+## Minh chứng chạy thực tế
+
+Đã thực hiện kiểm thử các chức năng API:
+
+- GET /api/surveys: Lấy danh sách khảo sát.
+- POST /api/surveys: Tạo khảo sát mới.
+- PUT /api/surveys/4: Cập nhật khảo sát.
+- DELETE /api/surveys/1: Xóa khảo sát.
+- POST /api/surveys/3/feedback: Gửi đánh giá CSAT/NPS.
+
+Đã kiểm tra dữ liệu bằng MySQL Workbench.
+
+Các ảnh minh chứng được lưu tại docs/minh-chung/.
+
 ## 6. Số commit trong buổi
 
 [Cập nhật sau khi kiểm tra lịch sử Git; yêu cầu tối thiểu 2 commit]
