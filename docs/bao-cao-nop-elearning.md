@@ -7,9 +7,9 @@
 
 ## 1. Link commit cuối buổi
 
- GitHub: https://github.com/duyloi142025-png/-cdtn1-NguyenDuyLoi-l8-
+ GitHub: https://github.com/duyloi140205-png/-cdtn1-NguyenDuyLoi-l8-
+
  
- https://github.com/duyloi142025-png/-cdtn1-NguyenDuyLoi-l8-/commit/dbba0799a28d60c6d8375eee7daa112dbe3c4fcb
 
 ## 2. Phản hồi BT1 và cải tiến
 
