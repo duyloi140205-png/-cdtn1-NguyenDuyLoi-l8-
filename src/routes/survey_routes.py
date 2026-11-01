@@ -25,8 +25,13 @@ def delete_survey(sid):
     n=repo.delete_survey(sid)
     return (jsonify(deleted=True),200) if n else (jsonify(error='Không tìm thấy'),404)
 
-@bp.post('/surveys/<int:sid>/feedback')
-def feedback(sid): return jsonify(id=svc.respond(sid,request.get_json(silent=True))),201
+
+@bp.post("/surveys/<int:sid>/feedback")
+def feedback(sid):
+    data = request.get_json(silent=True)
+    feedback_id = svc.respond(sid, data)
+    return jsonify(id=feedback_id), 201
+
 
 @bp.errorhandler(ValueError)
 @bp.errorhandler(KeyError)
