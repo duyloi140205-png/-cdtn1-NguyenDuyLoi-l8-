@@ -72,8 +72,7 @@ Kích hoạt môi trường:
 Cài đặt thư viện:
 
 ```powershell
-pip install -r requirements.txt
-pip install pytest
+python -m pip install -r requirements-lock.txt
 ```
 
 ### 3.4. Cấu hình MySQL
@@ -84,6 +83,19 @@ pip install pytest
    - `001_init.sql`
    - `002_seed.sql`
 4. Sao chép `.env.example` thành `.env`.
+
+### Cấu hình đăng nhập demo
+
+Trong file `.env`, cấu hình các biến:
+
+- `SECRET_KEY`: Khóa bí mật dùng để ký phiên đăng nhập Flask.
+- `DEMO_USERNAME`: Tên đăng nhập demo.
+- `DEMO_PASSWORD`: Mật khẩu đăng nhập demo.
+
+Tạo giá trị `SECRET_KEY` riêng và đặt mật khẩu demo khi cài đặt.
+
+Không commit file `.env`, mật khẩu hoặc khóa bí mật lên GitHub.
+
 5. Cập nhật thông tin kết nối MySQL trong `.env` theo cấu hình máy.
 
 **Lưu ý:** Không đưa file `.env` hoặc mật khẩu MySQL lên GitHub.
@@ -132,15 +144,23 @@ python -m pytest -v
 
 Kết quả kiểm thử đã ghi nhận trong quá trình thực hành Buổi 10: **5 Unit Test PASS**.
 
+
 ### 3.8. Kiểm tra luồng tích hợp
 
-1. Mở Frontend React.
-2. Truy cập danh sách khảo sát.
-3. Chọn một khảo sát để xem chi tiết.
-4. Mở màn hình tiếp nhận phản hồi.
-5. Nhập mã khảo sát hợp lệ, điểm CSAT từ 1 đến 5, điểm NPS từ 0 đến 10 và nội dung phản hồi.
-6. Gửi phản hồi.
-7. Kiểm tra dữ liệu đã lưu trong bảng `Feedback` của MySQL.
+1. Khởi động MySQL và Backend Flask.
+2. Khởi động Frontend React.
+3. Truy cập http://localhost:5173/.
+4. Đăng nhập bằng tài khoản demo được cấu hình trong `.env`.
+5. Xem danh sách khảo sát.
+6. Chọn khảo sát để xem chi tiết.
+7. Mở màn hình tiếp nhận phản hồi CSAT/NPS.
+8. Nhập mã khảo sát hợp lệ, CSAT từ 1 đến 5 và NPS từ 0 đến 10.
+9. Gửi phản hồi và kiểm tra dữ liệu trong MySQL.
+10. Nhấn Đăng xuất và xác nhận hệ thống quay về màn hình đăng nhập.
+
+API Survey và Feedback yêu cầu phiên đăng nhập hợp lệ.
+Nếu chưa đăng nhập, hệ thống trả về HTTP 401.
+
 
 ## 4. API
 
@@ -152,6 +172,13 @@ Kết quả kiểm thử đã ghi nhận trong quá trình thực hành Buổi 1
 | PUT | `/api/surveys/1` | Cập nhật khảo sát |
 | DELETE | `/api/surveys/1` | Xóa khảo sát |
 | POST | `/api/surveys/1/feedback` | Gửi phản hồi CSAT/NPS |
+| POST | `/api/auth/login` | Đăng nhập |
+| GET | `/api/auth/me` | Kiểm tra phiên đăng nhập |
+| POST | `/api/auth/logout` | Đăng xuất |
+| GET | `/api/feedback` | Danh sách phản hồi |
+| GET | `/api/feedback/1` | Chi tiết phản hồi |
+| PUT | `/api/feedback/1` | Cập nhật phản hồi |
+| DELETE | `/api/feedback/1` | Xóa phản hồi |
 
 Ví dụ JSON tạo khảo sát:
 
@@ -178,6 +205,7 @@ Các mã HTTP dự kiến:
 - `400`: Dữ liệu đầu vào không hợp lệ.
 - `404`: Không tìm thấy dữ liệu.
 - `409`: Xung đột dữ liệu liên quan.
+- `401`: Chưa đăng nhập hoặc phiên đăng nhập không hợp lệ.
 
 ## 5. Kiểm thử
 
@@ -227,8 +255,25 @@ Kiểm thử tích hợp:
 
 - Dashboard thống kê CSAT/NPS.
 - Lọc và xuất báo cáo.
-- Xác thực và phân quyền.
+- Phân quyền người dùng theo vai trò.
+- Quản lý tài khoản người dùng thực tế.
 - Kiểm thử hiệu năng.
+
+
+### Bổ sung BT2 – Buổi 12
+
+- [x] Hoàn thiện CRUD Survey.
+- [x] Bổ sung CRUD Feedback.
+- [x] Xây dựng giao diện đăng nhập React.
+- [x] Tích hợp Flask Session.
+- [x] Bảo vệ API Survey và Feedback bằng kiểm tra phiên đăng nhập.
+- [x] Kiểm tra API chưa đăng nhập trả về HTTP 401.
+- [x] Chạy thành công 5 Unit Test.
+- [x] Build Frontend React thành công.
+- [x] Chụp ảnh minh chứng BT2.
+- [ ] Kiểm tra cài đặt từ bản clone mới.
+- [ ] Hoàn thiện báo cáo PDF BT2.
+- [ ] Commit, push và tạo Git tag v0.2.
 
 ## 7. Git và báo cáo
 
@@ -239,14 +284,14 @@ Sử dụng Conventional Commits với các tiền tố như:
 - `test:` cho kiểm thử.
 - `docs:` cho tài liệu.
 
-Các minh chứng được lưu trong `docs/minh-chung/`.
+Ảnh minh chứng thực hành các buổi trước được lưu trong `docs/minh-chung/`.
 
-Không commit `.env`, `.venv`, `node_modules` hoặc dữ liệu bí mật.
+Bộ 7 ảnh minh chứng BT2 – Buổi 12 được lưu trong `docs/screenshots/`, gồm giao diện đăng nhập, danh sách khảo sát, chi tiết khảo sát, biểu mẫu phản hồi, trạng thái lỗi và thử lại, kết quả Unit Test và kiểm tra xác thực API.
 
 ## 8. Giới hạn
 
 Hệ thống hiện phục vụ mục đích thực hành và minh chứng Sprint 2.
 
-Chưa triển khai xác thực người dùng, phân quyền, dashboard nâng cao và kiểm thử hiệu năng.
+Hệ thống đã triển khai xác thực cơ bản bằng Flask Session với tài khoản demo. Chưa triển khai phân quyền theo vai trò, quản lý tài khoản người dùng thực tế, dashboard nâng cao và kiểm thử hiệu năng.
 
 Hệ thống cần cấu hình MySQL phù hợp trên từng máy trước khi chạy.

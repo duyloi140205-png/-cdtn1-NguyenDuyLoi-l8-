@@ -58,3 +58,34 @@ def respond(survey_id, data):
         raise ValueError("Nhận xét không hợp lệ")
 
     return repo.create_feedback(survey_id, csat, nps, comment)
+
+def update_feedback(feedback_id, data):
+    if not isinstance(data, dict):
+        raise ValueError("JSON không hợp lệ")
+
+    if not repo.get_feedback(feedback_id):
+        raise LookupError("Không tìm thấy phản hồi")
+
+    csat = data.get("csat")
+    nps = data.get("nps")
+    comment = data.get("comment", "")
+
+    if type(csat) is not int or not 1 <= csat <= 5:
+        raise ValueError("CSAT phải là số nguyên từ 1 đến 5")
+
+    if type(nps) is not int or not 0 <= nps <= 10:
+        raise ValueError("NPS phải là số nguyên từ 0 đến 10")
+
+    if not isinstance(comment, str) or len(comment) > 2000:
+        raise ValueError("Nhận xét không hợp lệ")
+
+    return repo.update_feedback(
+        feedback_id, csat, nps, comment
+    )
+
+
+def delete_feedback(feedback_id):
+    if not repo.get_feedback(feedback_id):
+        raise LookupError("Không tìm thấy phản hồi")
+
+    return repo.delete_feedback(feedback_id)

@@ -1,8 +1,39 @@
-from flask import Blueprint,request,jsonify
+from flask import Blueprint, request, jsonify, session
 from src.repositories import survey_repository as repo
 from src.services import survey_service as svc
 from pymysql.err import IntegrityError
 bp=Blueprint('survey',__name__,url_prefix='/api')
+@bp.before_request
+def require_login():
+    if not session.get("username"):
+        return jsonify(error="Vui lòng đăng nhập"), 401
+@bp.get("/feedback")
+def list_feedback():
+    return jsonify(repo.list_feedback())
+
+
+@bp.get("/feedback/<int:fid>")
+def get_feedback(fid):
+    feedback = repo.get_feedback(fid)
+
+    if not feedback:
+        return jsonify(error="Không tìm thấy phản hồi"), 404
+
+    return jsonify(feedback), 200
+
+
+@bp.put("/feedback/<int:fid>")
+def update_feedback(fid):
+    data = request.get_json(silent=True)
+    updated = svc.update_feedback(fid, data)
+
+    return jsonify(updated=bool(updated)), 200
+
+
+@bp.delete("/feedback/<int:fid>")
+def delete_feedback(fid):
+    svc.delete_feedback(fid)
+    return jsonify(deleted=True), 200
 
 @bp.get('/surveys')
 def list_surveys(): return jsonify(repo.list_surveys())

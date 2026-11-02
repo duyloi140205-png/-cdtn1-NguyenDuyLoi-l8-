@@ -3,18 +3,29 @@ export default function DataState({
   loading,
   error,
   empty,
+  emptyMessage = "Chưa có dữ liệu.",
+  onRetry,
   children,
 }) {
   if (loading) {
-    return <p>Đang tải dữ liệu...</p>;
+    return <p role="status">Đang tải dữ liệu...</p>;
   }
 
   if (error) {
-    return <p role="alert">Lỗi: {error}</p>;
+    return (
+      <div role="alert">
+        <p>Lỗi kết nối: {error}</p>
+        {onRetry && (
+          <button type="button" onClick={onRetry}>
+            Thử lại
+          </button>
+        )}
+      </div>
+    );
   }
 
   if (empty) {
-    return <p>Chưa có dữ liệu khảo sát.</p>;
+    return <p>{emptyMessage}</p>;
   }
 
   return <>{children}</>;

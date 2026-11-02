@@ -28,13 +28,19 @@ def update_survey(survey_id,expire_date):
         db.commit()
         return count
 
+
 def delete_survey(survey_id):
     with connect() as db:
         with db.cursor() as cur:
-            cur.execute('DELETE FROM Survey WHERE SurveyID=%s',(survey_id,))
-            count=cur.rowcount
+            cur.execute(
+                "DELETE FROM Survey WHERE SurveyID=%s",
+                (survey_id,)
+            )
+            count = cur.rowcount
+
         db.commit()
         return count
+
 
 def create_feedback(survey_id,csat,nps,comment):
     with connect() as db:
@@ -43,3 +49,51 @@ def create_feedback(survey_id,csat,nps,comment):
             result=cur.lastrowid
         db.commit()
         return result
+
+def list_feedback():
+    with connect() as db:
+        with db.cursor() as cur:
+            cur.execute("""
+                SELECT FeedbackID, SurveyID, CSATScore,
+                       NPSScore, Comment, SubmittedDate
+                FROM Feedback
+                ORDER BY FeedbackID DESC
+            """)
+            return cur.fetchall()
+
+
+def get_feedback(feedback_id):
+    with connect() as db:
+        with db.cursor() as cur:
+            cur.execute(
+                "SELECT * FROM Feedback WHERE FeedbackID=%s",
+                (feedback_id,)
+            )
+            return cur.fetchone()
+
+
+def update_feedback(feedback_id, csat, nps, comment):
+    with connect() as db:
+        with db.cursor() as cur:
+            cur.execute("""
+                UPDATE Feedback
+                SET CSATScore=%s, NPSScore=%s, Comment=%s
+                WHERE FeedbackID=%s
+            """, (csat, nps, comment, feedback_id))
+            count = cur.rowcount
+
+        db.commit()
+        return count
+
+
+def delete_feedback(feedback_id):
+    with connect() as db:
+        with db.cursor() as cur:
+            cur.execute(
+                "DELETE FROM Feedback WHERE FeedbackID=%s",
+                (feedback_id,)
+            )
+            count = cur.rowcount
+
+        db.commit()
+        return count
