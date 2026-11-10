@@ -14,3 +14,20 @@
 | Phạm vi ngoài SMS/Email/AI | Giữ ngoài phạm vi | Đúng Scope BT1 |
 
 **Cần bổ sung:** Phản hồi chi tiết nếu giảng viên có cung cấp ở nguồn khác; ghi nhận các thay đổi sau khi tự chạy thử.
+## Phản hồi Bài tập 2 – Buổi 14
+
+- **Điểm BT2:** 8.5/10.
+- **Ngày chấm:** 07/11/2026.
+- **Giảng viên:** Thầy Trần Công Thanh.
+- **Nhận xét hiển thị trên LMS:** "Điểm mạnh: Flask + MySQL + React tách ..."
+- **Lưu ý:** Nội dung nhận xét bị rút gọn bằng dấu ba chấm, không có thông tin chi tiết về các điểm cần cải thiện.
+
+### Kế hoạch cải tiến sau BT2
+
+1. Bổ sung Test Plan cho module L8 CSAT/NPS.
+2. Thiết kế và chạy 10–12 test case, bao gồm giá trị biên, dữ liệu sai, bảo mật và tái lập.
+3. Ghi nhận kết quả PASS/FAIL thực tế trong Test Report.
+4. Phát hiện và ghi lại lỗi thực tế trong Bug Log.
+5. Sửa lỗi bằng các commit riêng và chạy lại toàn bộ test.
+
+Các mục cải tiến trên là kế hoạch kiểm thử của sinh viên, không phải nguyên văn nhận xét của giảng viên.
