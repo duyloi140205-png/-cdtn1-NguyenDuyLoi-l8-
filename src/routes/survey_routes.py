@@ -73,4 +73,8 @@ def bad_input(e): return jsonify(error=str(e)),400
 def not_found(e): return jsonify(error=str(e)),404
 
 @bp.errorhandler(IntegrityError)
-def integrity(e): return jsonify(error='Dữ liệu tham chiếu không hợp lệ hoặc bị trùng'),409
+def integrity(e):
+    return jsonify(
+        error="Dữ liệu tham chiếu không hợp lệ hoặc bị trùng"
+    ), 409
+
