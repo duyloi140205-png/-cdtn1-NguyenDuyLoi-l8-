@@ -50,7 +50,7 @@ python -m pytest -v
 **Kết quả thực tế:**
 
 ```text
-15 passed in 0.27s
+19 passed in 0.36s
 ```
 
 Các bài kiểm thử service sử dụng mock repository. Một số bài kiểm thử API sử dụng mock service nhằm kiểm tra phản hồi HTTP mà không thay đổi dữ liệu MySQL.
@@ -110,21 +110,38 @@ python -m pytest tests/test_auth_api.py -v
 
 **Nhận xét:** Các bài kiểm thử xác nhận Flask trả về mã HTTP phù hợp trong các tình huống đã thiết lập. Đối với TC-13 đến TC-15, service được mock nên kết quả chưa chứng minh toàn bộ quy trình ghi dữ liệu qua API vào MySQL thực tế.
 
+### 3.3. Kiểm thử bổ sung – 4 Test Case
+
+| ID | Nội dung | Kết quả |
+|---|---|---|
+| TC-16 | Kiểm tra câu SQL cập nhật Survey | PASS |
+| TC-17 | Từ chối Feedback có nhận xét dài hơn 2000 ký tự | PASS |
+| TC-18 | Từ chối cập nhật Feedback với NPS=11 | PASS |
+| TC-19 | Kiểm tra đăng ký IntegrityError handler | PASS |
+
+Kết quả: 4/4 PASS.
+
+Minh chứng: docs/screenshots/buoi14-bug03-after.png
+
+Lưu ý: TC-19 kiểm tra đăng ký handler, chưa xác minh đầy đủ phản hồi HTTP 409 khi MySQL thực tế phát sinh IntegrityError.
+
 ## 4. Tổng hợp kết quả kiểm thử tự động
 
 | Nhóm kiểm thử | Tổng số | PASS | FAIL | Tỷ lệ PASS |
 |---|---:|---:|---:|---:|
 | Service Unit Tests | 10 | 10 | 0 | 100% |
 | Flask API Tests | 5 | 5 | 0 | 100% |
-| **Tổng cộng** | **15** | **15** | **0** | **100%** |
+| Kiểm thử bổ sung Survey/Feedback | 3 | 3 | 0 | 100% |
+| Kiểm tra đăng ký IntegrityError handler | 1 | 1 | 0 | 100% |
+| **Tổng cộng** | **19** | **19** | **0** | **100%** |
 
 **Kết quả chạy toàn bộ pytest ngày 10/11/2026:**
 
 ```text
-==================== 15 passed in 0.27s ====================
+==================== 19 passed in 0.36s ====================
 ```
 
-**Đánh giá:** Tất cả 15 bài kiểm thử tự động hiện có đều đạt yêu cầu.
+**Đánh giá:** Tất cả 19 bài kiểm thử tự động hiện có đều đạt yêu cầu.
 
 Tỷ lệ PASS 100% chỉ phản ánh bộ kiểm thử đã thực hiện, không có nghĩa toàn bộ hệ thống không còn lỗi.
 
@@ -260,7 +277,7 @@ Các thao tác CRUD và kiểm tra ràng buộc dữ liệu đạt yêu cầu tr
 
 **File theo dõi:** `docs/testing/bug-log.md`
 
-Trong phạm vi các bài kiểm thử đã thực hiện, chưa xác nhận được lỗi chức năng có thể tái hiện.
+Trong phạm vi các bài kiểm thử đã thực hiện, Đã thực hiện kiểm thử bổ sung và rà soát xử lý IntegrityError. Commit 19e9638 cập nhật nội dung thông báo lỗi và định dạng handler. Chưa có đủ bằng chứng để kết luận commit này đã khắc phục lỗi thiếu đăng ký handler.
 
 Quá trình kiểm tra API gửi Feedback đã xác nhận endpoint:
 
@@ -313,7 +330,7 @@ Mặc dù các bài kiểm thử hiện tại đều PASS, hệ thống vẫn c�
 
 Trong Buổi 14, dự án Smart CRM – Mekong Mobile đã đạt được các kết quả:
 
-- **15/15 bài kiểm thử pytest PASS**, gồm 10 Service Unit Test và 5 Flask API Test.
+- **19/19 bài kiểm thử pytest PASS**, gồm 10 Service Unit Test và 5 Flask API Test.
 - Kết nối và truy vấn dữ liệu MySQL thành công.
 - Kiểm thử migration thành công với 5 bảng.
 - Kiểm thử CRUD Survey/Feedback bằng SQL trực tiếp thành công.
